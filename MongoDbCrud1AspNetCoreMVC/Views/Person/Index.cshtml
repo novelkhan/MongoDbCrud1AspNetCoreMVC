@@ -1,0 +1,35 @@
+﻿@model List<Person>
+
+<h2>Person List</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Person ID</th>
+            <th>Person Name</th>
+            <th>Person Age</th>
+            <th>Home Town</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.PersonId</td>
+                <td>@person.PersonName</td>
+                <td>@person.PersonAge</td>
+                <td>@person.HomeTown</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@person.PersonId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@person.PersonId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@person.PersonId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
